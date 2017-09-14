@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="favicon.ico">
+  <title>Admin Recipe Input & Entry View</title>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material design -->
+  <link href="css/jquery.material.form.css" rel="stylesheet">
+  <!-- Bootstrap date picker -->
+  <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <!-- Bootstrap Select v1.12.2 -->
+  <link href="css/bootstrap-select.css" rel="stylesheet">
+  <!-- Font Awesome 4.7.0 -->
+  <link href="css/font-awesome.css" rel="stylesheet" >
+  <!-- Custom styles CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <header class="header">
+        <div class="container-fluid">
+            <div class="header-logo">
+                <div class="pull-left">
+                    <a href="javascript:;" title="Logo"> <img src="img/logo.png" alt="Reciepes & Rotations"> </a>
+                </div>
+                <div class="pull-right">
+                    <span class="username hidden-xs">Alfredo Figueroa</span>
+                    <div class="dropdown">
+                        <a href="javascript:;" class="dropdown-toggle user-dropdown" data-toggle="dropdown" title="User">
+                            <img src="img/dummy-user.svg" alt="user">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Orders</a>
+                            </li>
+                            <li><a href="#">Menu Cover</a>
+                            </li>
+                            <li><a href="#">My Profile</a>
+                            </li>
+                            <li><a href="#">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-section">
+            <nav class="navbar">
+                <div class="container-fluid">
+                    <div class="navbar-header visible-xs">
+                        <span>Menu</span>
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>                          
+                        </button>
+                      </div>
+                      <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" class="active">Dashboard</a></li>
+                            <li><a href="#">Menu Rotation</a></li>
+                            <li><a href="#">Dated Rotation</a></li>
+                            <li><a href="#">Recipes</a></li>
+                            <li><a href="#">Ingredients</a></li>
+                            <li><a href="javascript:;">Users</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Ingredients</a></li>
+                                    <li><a href="#">Admin Users</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                       </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+  <!-- /.header -->
+
+  <div class="page-header">
+    <div class="container-fluid">
+      <h1>Admin Recipe Input & Entry View</h1>
+    </div>
+  </div>
+  <!-- /.page-header -->
+
+  <section class="well dark-well mb-0">
+    <div class="container-fluid">
+      <div class="row row-eq-height dark-well-row">
+        <div class="col-md-4 col-sm-12 col-right-spacing">
+          <h4 class="title-border">Recipe Meta Data</h4>
+          <p><strong>File Names & Categories</strong>
+          </p>
+          <div class="form-horizontal form-horizontal-style material form-categories form-margin-15">
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-md-4 col-sm-4 col-xs-5">Recipe Name:</label>
+              <div class="col-md-8 col-sm-8 col-xs-7">
+                <input type="text" class="form-control" id="recipe-name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-md-4 col-sm-4 col-xs-5">Kitchen Station:</label>
+              <div class="col-md-8 col-sm-8 col-xs-7">
+                <select class="selectpicker form-control" title="Select Kitchen Station">
+                  <option>Mustard</option>
+                  <option>Ketchup</option>
+                  <option>Relish</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-md-4 col-sm-4 col-xs-5">Sub-Category:</label>
+              <div class="col-md-8 col-sm-8 col-xs-7">
+                <select class="selectpicker form-control" title="Select sub-category">
+                  <option>Mustard</option>
+                  <option>Ketchup</option>
+                  <option>Relish</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-md-4 col-sm-4 col-xs-5">Recipe ID:</label>
+              <div class="col-md-8 col-sm-8 col-xs-7">
+                <input type="text" class="form-control" id="recipe-id">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-md-4 col-sm-4 col-xs-5">Recipe Type:</label>
+              <div class="col-md-8 col-sm-8 col-xs-7">
+                <select class="selectpicker form-control" title="Select Recipe Type">
+                  <option>Single Recipe</option>
+                  <option>Bulk Recipe</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- /.form-horizontal -->
+          <div class="highlight dark-highlight" role="alert">
+            <p>Note: A place to say something, if necessary.</p>
+          </div>
+          <!-- /.highlight -->
+        </div>
+        <div class="col-md-5 col-sm-12 col-left-spacing">
+          <h4 class="title-border">Portions & Yields</h4>
+          <div class="form-horizontal form-horizontal-style material form-recipe-info form-margin-15">
+            <div class="form-group">
+              <div class="col-lg-5 col-md-4 col-sm-4 col-xs-12"><p><strong>Base Recipe Information</strong></p></div>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4"><p><strong>Amount</strong></p></div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-xs-8"><p><strong>Measure</strong></p></div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-lg-5 col-md-4 col-sm-4 col-xs-12">Portion Size:</label>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                <input type="text" class="form-control" id="recipe-name">
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-xs-8">
+                <select class="selectpicker form-control" title="Select Kitchen Station">
+                  <option>Ounces</option> 
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-lg-5 col-md-4 col-sm-4 col-xs-12">Base Recipe Yield:</label>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                <input type="text" class="form-control" id="recipe-name">
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-xs-8">
+                <select class="selectpicker form-control" title="Select Kitchen Station">
+                  <option>Gallons (128 Fl-Ounces)</option> 
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-lg-5 col-md-4 col-sm-4 col-xs-12">Base Yield in Portions</label>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                <input type="text" class="form-control" id="recipe-name">
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-xs-8">
+                <select class="selectpicker form-control" title="Select Kitchen Station">
+                  <option>Portions</option> 
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-lg-5 col-md-4 col-sm-4 col-xs-12">Scaling Increment:</label>
+              <div class="col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                <input type="text" class="form-control" id="recipe-name">
+              </div>
+              <div class="col-lg-5 col-md-6 col-sm-6 col-xs-8">
+                <select class="selectpicker form-control" title="Select Kitchen Station">
+                  <option>Portions</option> 
+                </select>
+              </div>
+            </div> 
+          </div>
+          <!-- /.form-horizontal -->
+          <div class="highlight dark-highlight pb-0" role="alert">
+            <h4 class="title-border">Scaled Recipe Input</h4>
+            <div class="form-horizontal form-horizontal-style material form-recipe-info"> 
+              <div class="form-group">
+                <label for="recipe-name" class="control-label col-md-5 col-sm-5 col-xs-8">Scaled Recipe Portions:</label>
+                <div class="col-md-2 col-sm-2 col-xs-4">
+                  <input type="text" class="form-control" id="recipe-name">
+                </div>
+                <div class="col-md-5 col-sm-5 col-xs-12"><button type="button" class="btn btn-primary xs-mt-10">Calculate</button></div>
+              </div> 
+            </div>
+            <div class="highlight-footer">
+              <div class="form-horizontal form-noneditable form-horizontal-style material form-recipe-info"> 
+                <div class="form-group">
+                <label class="control-label col-md-5 col-sm-5 col-xs-6">ADM Scale Ratio:</label>
+                <label class="control-label col-md-2 col-sm-2 col-xs-6 text-left">2</label>
+                <label class="control-label col-md-5 col-sm-5 col-xs-12 text-left"><-- Computed</label>
+              </div> 
+              </div>
+            </div>
+          </div>
+          <!-- /.highlight -->
+          <div class="highlight dark-highlight mb-0" role="alert">
+            <h4 class="title-border"> Scaled Recipe Output</h4>
+            <div class="form-horizontal form-noneditable form-horizontal-style material form-recipe-info"> 
+              <div class="form-group">
+                <label class="control-label col-md-5 col-sm-5 col-xs-9">Scaled Recipe Yield:</label>
+                <label class="control-label col-md-2 col-sm-2 col-xs-3 text-left">2</label>
+                <label class="control-label col-md-5 col-sm-5 col-xs-12 text-left">Gallons (128 Fl-Ounces)</label>
+              </div> 
+              <div class="form-group">
+                <label class="control-label col-md-5 col-sm-5 col-xs-9">Scaled Recipe in Portions:</label>
+                <label class="control-label col-md-2 col-sm-2 col-xs-3 text-left">48</label>
+                <label class="control-label col-md-5 col-sm-5 col-xs-12 text-left">Portions</label>
+              </div>
+            </div> 
+          </div>
+          <!-- /.highlight --> 
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <div class="approved-section">
+            <div class="approved-btn-groups">
+              <button type="button" class="btn btn-block btn-max-width btn-primary">Edit Recipe</button>
+              <button type="button" class="btn btn-block btn-max-width btn-success">Save Changes</button>
+              <button type="button" class="btn btn-block btn-max-width btn-info">Undo Last Step</button>
+              <button type="button" class="btn btn-block btn-max-width btn-primary">Download Recipe as PDF</button>
+            </div>
+            <div class="highlight dark-highlight approved-highlight mb-0 inline-block" role="alert">
+              <h4 class="title-border">Approved by Dietitian</h4>
+              <div class="form-vertical form-horizontal-style material form-categories"> 
+                <div class="form-group">
+                  <label for="recipe-name" class="control-label col-md-12">Dietitian Name:</label>
+                  <div class="col-md-12">
+                    <select class="selectpicker form-control" data-live-search="true" title="Select Dietitian Name">
+                      <option>Margaret Wooldridge</option>
+                      <option>Margaret Wooldridge</option>
+                      <option>Margaret Wooldridge</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="recipe-name" class="control-label col-md-12">Date of Approval:</label>
+                  <div class="col-md-12">
+                    <div class="input-group date datetimepicker">
+                      <input type='text' class="form-control" />
+                      <span class="input-group-addon">
+                        <img class="img-icon_calendar" src="img/icon_calendar.png">
+                      </span>
+                    </div>
+                  </div>
+                </div> 
+              </div>
+              <button type="button" class="btn btn-block btn-primary">Approved by Dietitian</button>
+            </div>
+            <!-- /.highlight -->
+          </div>
+          <!-- /.approved-section -->
+        </div> 
+      </div>
+      <!-- /.row-eq-height -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.well -->
+
+  <section class="section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="row header-section">
+            <div class="col-md-7 col-sm-7 col-xs-7">
+              <h3 class="section-title">Ingredients and Amounts</h3>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5">
+              <div class="pull-right"> 
+                <a href="javascript:;" class="btn icon-btn" data-toggle="modal" data-target="#add-recipe-header"><i class="icon-circle"><img src="img/icon_plus.png" alt=""></i><span class="hidden-xs">Add New Header</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- /.header-section -->
+          <div class="table-responsive">
+            <table class="table has-row-close">
+              <thead>
+                <tr>
+                  <th style="width: 90px">Measure Type</th>
+                  <th style="width: 70px">Base Amount</th>
+                  <th style="width: 100px">Base Measure</th>
+                  <th style="width: auto">Ingredients</th>
+                  <th style="width: 100px">Our Product Number</th>
+                  <th style="width: 120px">Scaled Amount</th>
+                  <th style="width: 15px"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tr-highlight">
+                  <th colspan="7">For Meatballs:</th>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Weight">
+                      <option>100g</option>
+                      <option>200g</option>
+                      <option>300g</option>
+                      <option>400g</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="2">
+                  </td>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Measure">
+                      <option>ounces</option>
+                      <option>fl-oz</option>
+                      <option>each</option>
+                      <option>each</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="Grana Cheese, grated">
+                  </td>
+                  <td>19999</td>
+                  <td>3 #</td>
+                  <td><a href="javascript:;" class="td-action-close"><img src="img/icons/icon_close.svg" alt="close"></a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Weight">
+                      <option>100g</option>
+                      <option>200g</option>
+                      <option>300g</option>
+                      <option>400g</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="2">
+                  </td>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Measure">
+                      <option>ounces</option>
+                      <option>fl-oz</option>
+                      <option>each</option>
+                      <option>each</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="Grana Cheese, grated">
+                  </td>
+                  <td>19999</td>
+                  <td>½ Cup</td>
+                  <td><a href="javascript:;" class="td-action-close"><img src="img/icons/icon_close.svg" alt="close"></a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Weight">
+                      <option>100g</option>
+                      <option>200g</option>
+                      <option>300g</option>
+                      <option>400g</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="2">
+                  </td>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Measure">
+                      <option>ounces</option>
+                      <option>fl-oz</option>
+                      <option>each</option>
+                      <option>each</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="Grana Cheese, grated">
+                  </td>
+                  <td>19999</td>
+                  <td>3 #</td>
+                  <td><a href="javascript:;" class="td-action-close"><img src="img/icons/icon_close.svg" alt="close"></a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Weight">
+                      <option>100g</option>
+                      <option>200g</option>
+                      <option>300g</option>
+                      <option>400g</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="2">
+                  </td>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Measure">
+                      <option>ounces</option>
+                      <option>fl-oz</option>
+                      <option>each</option>
+                      <option>each</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="Grana Cheese, grated">
+                  </td>
+                  <td>19999</td>
+                  <td>3 #</td>
+                  <td><a href="javascript:;" class="td-action-close"><img src="img/icons/icon_close.svg" alt="close"></a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Weight">
+                      <option>100g</option>
+                      <option>200g</option>
+                      <option>300g</option>
+                      <option>400g</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="2">
+                  </td>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Measure">
+                      <option>ounces</option>
+                      <option>fl-oz</option>
+                      <option>each</option>
+                      <option>each</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="Grana Cheese, grated">
+                  </td>
+                  <td>19999</td>
+                  <td>3 #</td>
+                  <td><a href="javascript:;" class="td-action-close"><img src="img/icons/icon_close.svg" alt="close"></a></td>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Weight">
+                      <option>100g</option>
+                      <option>200g</option>
+                      <option>300g</option>
+                      <option>400g</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="2">
+                  </td>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Measure">
+                      <option>ounces</option>
+                      <option>fl-oz</option>
+                      <option>each</option>
+                      <option>each</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="Grana Cheese, grated">
+                  </td>
+                  <td>19999</td>
+                  <td>3 #</td>
+                  <td><a href="javascript:;" class="td-action-close"><img src="img/icons/icon_close.svg" alt="close"></a></td>
+                </tr>
+                <tr>
+                  <td colspan="7" class="table-action-td">
+                    <div class="table-action-btn">
+                      <a href="javascript:;" class="btn icon-btn btn-outline"><i class="icon-circle icon-circle-gray"><img src="img/icon_plus.png" alt=""></i><span>Add New Ingredient</span></a>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="tr-highlight">
+                  <th colspan="7">For Meatballs:</th>
+                </tr>
+                <tr>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Weight">
+                      <option>100g</option>
+                      <option>200g</option>
+                      <option>300g</option>
+                      <option>400g</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="2">
+                  </td>
+                  <td>
+                    <select class="selectpicker form-control" data-live-search="true" title="Measure">
+                      <option>ounces</option>
+                      <option>fl-oz</option>
+                      <option>each</option>
+                      <option>each</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" class="form-control" value="Grana Cheese, grated">
+                  </td>
+                  <td>19999</td>
+                  <td>3 #</td>
+                  <td><a href="javascript:;" class="td-action-close"><img src="img/icons/icon_close.svg" alt="close"></a></td>
+                </tr>
+                <tr>
+                  <td colspan="7" class="table-action-td">
+                    <div class="table-action-btn">
+                      <a href="javascript:;" class="btn icon-btn btn-outline"><i class="icon-circle icon-circle-gray"><img src="img/icon_plus.png" alt=""></i><span>Add New Ingredient</span></a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>  
+        <div class="col-md-5">
+          <div class="row header-section">
+            <div class="col-md-7 col-sm-7 col-xs-7">
+              <h3 class="section-title">Steps</h3>
+            </div>
+            <div class="col-md-5 col-sm-5 col-xs-5">
+              <div class="pull-right"> 
+                <a href="javascript:;" class="btn icon-btn" data-toggle="modal" data-target="#add-new-step"><i class="icon-circle"><img src="img/icon_plus.png" alt=""></i><span class="hidden-xs">Add New Step</span></a>
+              </div>
+            </div>
+          </div>
+          <!-- /.header-section -->
+          <section class="well light-gray-well mb-0">
+            <ol class="order-list">
+              <li>Make 1" meatballs from indicated ingredients. Don't overmix. Brown in olive oil. Reserve. </li>
+              <li>Sweat onions and garlic in oil. Add stock and bring to simmer. </li>
+              <li>Add meatballs, mushrooms, carrots, celery and tomatoes. Simmer till carrots are  tender. </li>
+              <li>Add peas, salt and pepper. Return to simmer.  </li>
+              <li>Hold at > 135 °F. </li>
+              <li><strong>Serve, garnished with chopped parsley. </strong></li>
+            </ol>
+          </section>
+          <!-- /.light-gray-well -->
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.section -->
+
+  <footer class="footer sticky-footer">
+    <div class="container-fluid">
+      <p>&copy; 2017 Genuine Hospitality Consulting. All Rights Reserved.</p>
+      <p>The recipes herein are original works of authorship of Joe Abuso, Principal, Genunie Hospitality Consulting, and are the exclusive and confidential property of Genuine Hospitality Consulting.</p>
+    </div>
+  </footer>
+  <!-- /.footer -->
+
+  <!-- || MODAL : ADD RECIPE HEADER || -->
+  <div class="modal fade" id="add-recipe-header" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add New Header</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-vertical form-horizontal-style material mb-0">
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-md-12">Add a Header:</label>
+              <div class="col-md-12">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Add Header</button>
+            </div>
+          </div>
+          <!-- /.form-vertical -->
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <!-- || MODAL : ADD NEW STEP || -->
+  <div class="modal fade" id="add-new-step" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">Add New Step</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-vertical form-horizontal-style material mb-0">
+            <div class="form-group">
+              <label for="recipe-name" class="control-label col-md-12">Add a Step:</label>
+              <div class="col-md-12">
+                <input type="text" class="form-control">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Add Step</button>
+            </div>
+          </div>
+          <!-- /.form-vertical -->
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <!-- jQuery 2.2.3 -->
+  <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+  <!-- Bootstrap 3.3.6 -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- Moment -->
+  <script type="text/javascript" src="js/moment-with-locales.js"></script>
+  <!-- Boostrap date picker -->
+  <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+  <!-- Jquery material form plugin -->
+  <script type="text/javascript" src="js/jquery.material.form.min.js"></script>
+  <!-- Bootstrap Select v1.12.2 -->
+  <script type="text/javascript" src="js/bootstrap-select.js"></script>
+  <!-- Custom Script -->
+  <script type="text/javascript" src="js/script.js"></script>
+
+</body> 
+
+</html>

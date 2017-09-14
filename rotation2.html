@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Admin Recipe Input & Entry View</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material design -->
+    <link href="css/jquery.material.form.css" rel="stylesheet">
+    <!-- Bootstrap date picker -->
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <!-- Bootstrap Select v1.12.2 -->
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+    <!-- Font Awesome 4.7.0 -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- DataTables CSS-->
+    <link href="css/jquery.dataTables.min.css" rel="stylesheet">
+    <!-- Custom styles CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container-fluid">
+            <div class="header-logo">
+                <div class="header-left">
+                    <a href="javascript:;" title="Logo"> <img src="img/logo.png" alt="Reciepes & Rotations"> </a>
+                </div>
+                <div class="header-right">
+                    <div class="account-sec">
+                        <span class="username hidden-xs">Alfredo Figueroa</span>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle user-dropdown" data-toggle="dropdown" title="User">
+                                <img src="img/dummy-user.svg" alt="user">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Orders</a>
+                                </li>
+                                <li><a href="#">Menu Cover</a>
+                                </li>
+                                <li><a href="#">My Profile</a>
+                                </li>
+                                <li><a href="#">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-section">
+                        <nav class="navbar">
+                                <div class="navbar-header visible-xs">
+                                    <span>Menu</span>
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                      <span class="sr-only">Toggle navigation</span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>                          
+                                    </button>
+                                  </div>
+                                  <div id="navbar" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#" class="active">Dashboard</a></li>
+                                        <li><a href="#">Menu Rotation</a></li>
+                                        <li><a href="#">Dated Rotation</a></li>
+                                        <li><a href="#">Recipes</a></li>
+                                        <li><a href="#">Ingredients</a></li>
+                                        <li><a href="javascript:;">Users</a></li>
+                                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Ingredients</a></li>
+                                                <li><a href="#">Admin Users</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                   </div>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    <!-- /.header -->
+
+    <!-- <div class="page-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Rotation Functions:</h1>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- /.page-header -->
+
+    <section class="well dark-well mb-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="column-vertical-divider form-inline">                        
+                        <h4 class="title-border without_line">Receipe Date Range: </h4>
+                        <div class="form-group inline-label">
+                            <label for="recipe-name" class="control-label">From:</label>
+                            <div class="input-group date datetimepicker">
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon">
+                                  <img class="img-icon_calendar" src="img/icon_calendar.png">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group inline-label">
+                            <label for="recipe-name" class="control-label">To:</label>                                    
+                            <div class="input-group date datetimepicker">
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon">
+                                  <img class="img-icon_calendar" src="img/icon_calendar.png">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group inline-label">
+                            <button type="button" class="btn btn-block btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-block-col text-right col-sm-5">
+                    <button type="button" class="btn btn-success">Save Dated Rotation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.well -->
+
+    <section class="section-wrap">
+        <div class="container-fluid md-pl-0">
+            <a href="javascript:;" class="hidden-md visible-sm visible-xs sidebar-toggle"><i class="fa fa-filter" aria-hidden="true"></i></a>
+            <main class="main-container">
+                <div class="table-responsive table-body">
+                    <table id="sort-table" class="table table-responsive table-striped display lr-br">
+                        <thead>
+                            <tr>
+                                <th style="width:5%;"><span>Week</span>
+                                </th>
+                                <th style="width:5%;"><span>Date</span>
+                                </th>
+                                <th style="width:7%;"><span>Meal</span>
+                                </th>
+                                <th style="width:7%;"><span>Meal Part</span>
+                                </th>
+                                <th style="width:7%;"><span>Special</span>
+                                </th>
+                                <th style="width:20%;"><span>Weekly Menu Name and Item Recipe</span>
+                                </th>
+                                <th style="width:5%;"><span>Daily Menu Name</span>
+                                </th>
+                                <th style="width:8%;"><span>Component Recipes</span>
+                                </th>
+                                <th style="width:5%;" class="no-sort"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Week-1</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span class="active"></span>
+                                </td>
+                                <td>
+                                    <div class="item_img">
+                                        <img src="img/item_thumb.jpg" alt="item_thumb" title="Cream of Wheat">
+                                    </div>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Week-2</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span class="active"></span>
+                                </td>
+                                <td>
+                                    <div class="item_img">
+                                        <img src="img/item_thumb.jpg" alt="item_thumb" title="Cream of Wheat">
+                                    </div>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Week-3</td>
+                                <td>Sunday,
+                                    <br> 2/5/2017</td>
+                                <td>Breakfast</td>
+                                <td>Hot Cereal</td>
+                                <td class="special-star"><span></span>
+                                </td>
+                                <td>
+                                    <div class="item_recipe">
+                                        <h5>Cream of Wheat</h5>
+                                        <span>BRFS-1001</span>
+                                    </div>
+                                </td>
+                                <td>Cream of Wheat</td>
+                                <td>SAUC-1213</td>
+                                <td>
+                                  <span class="action-btn">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#edit-wrap" class="td-action-close" title="Edit"><img src="img/icons/icon_edit_off.svg" alt="edit">
+                                    </a>
+                                    <a href="javascript:;" class="td-action-close"><img src="img/icons/icon_delete.svg" alt="close" title="Remove">
+                                    </a>
+                                  </span>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </main>
+
+
+
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.section-wrap -->
+
+    <!-- || MODAL : ADD RECIPE HEADER || -->
+    <div class="modal fade" id="edit-wrap" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Add New Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal form-horizontal-style material form-white-wrap">
+                        <div class="form-group">
+                            <label for="Week" class="control-label col-md-4 col-sm-4 col-xs-5">Week:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <select class="selectpicker form-control">
+                                    <option>Week 1</option>
+                                    <option>Week 2</option>
+                                    <option>Week 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Date" class="control-label col-md-4 col-sm-4 col-xs-5">Date:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <div class="input-group date datetimepicker input-append">
+                                    <input type='text' class="form-control" />
+                                    <span class="input-group-addon">
+                                      <img class="img-icon_calendar" src="img/icon_calendar_off.png">
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="Meal" class="control-label col-md-4 col-sm-4 col-xs-5">Meal:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <input type="text" class="form-control" id="Meal">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Meal Part" class="control-label col-md-4 col-sm-4 col-xs-5">Meal Part:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <select class="selectpicker form-control">
+                                    <option>Meal 1</option>
+                                    <option>Meal 2</option>
+                                    <option>Meal 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Special" class="control-label col-md-4 col-sm-4 col-xs-5">Special:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <div class="checkbox_wrap">
+                                    <input type="checkbox" id="Special" name="week_fliter">
+                                    <label for="Special"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Weekly Menu Name and Item Recipe" class="control-label col-md-4 col-sm-4 col-xs-5">Weekly Menu Name and Item Recipe:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <input type="text" class="form-control" id="Weekly Menu Name and Item Recipe">
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label for="Daily Menu Name" class="control-label col-md-4 col-sm-4 col-xs-5">Daily Menu Name:</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <input type="text" class="form-control" id="Daily Menu Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Item image" class="control-label col-md-4 col-sm-4 col-xs-5">Item image</label>
+                            <div class="col-md-8 col-sm-8 col-xs-7">
+                                <input type="file" class="form-control" id="Item image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Add Step</button>
+                    </div>
+
+                    <!-- /.form-vertical -->
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <a href="javascript:;" class="add-btn" title="Add" data-toggle="modal" data-target="#edit-wrap">+</a>
+
+    <footer class="footer sticky-footer">
+        <div class="container-fluid">
+            <p>&copy; 2017 Genuine Hospitality Consulting. All Rights Reserved.</p>
+            <p>The recipes herein are original works of authorship of Joe Abuso, Principal, Genunie Hospitality Consulting, and are the exclusive and confidential property of Genuine Hospitality Consulting.</p>
+        </div>
+    </footer>
+    <!-- /.footer -->
+
+    <!-- jQuery 2.2.3 -->
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Moment -->
+    <script type="text/javascript" src="js/moment-with-locales.js"></script>
+    <!-- Boostrap date picker -->
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Jquery material form plugin -->
+    <script type="text/javascript" src="js/jquery.material.form.min.js"></script>
+    <!-- Data Table JS -->
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <!-- Bootstrap Select v1.12.2 -->
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <script type="text/javascript" src="http://areaaperta.com/nicescroll/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/jquery.nicescroll.js"></script>
+    <!-- Custom Script -->
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+</html>

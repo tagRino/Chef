@@ -1,0 +1,292 @@
+/*Admin menu items grid view*/
+
+.admin-menuItems-grid .form-horizontal .control-label {
+  text-align: left;
+}
+.grid-view-wrap {
+  background-color: $grid-view-menu-bg;
+}
+.admin-menuItems-grid .grid-view-heading {
+  padding: 23px 0 15px 0;
+  text-align: center;
+}
+.admin-menuItems-grid .grid-view-heading h4 {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 27px;
+  margin: 0;
+}
+.grid-view-menu {
+  padding-top: 16px;
+  padding-bottom: 10px;
+  background-color: $light-grey;
+}
+.second-week-wrap {
+  .grid-view-wrap {
+    background-color: $light-blue;
+  }
+  .table.grid-days {
+    > thead {
+      > tr {
+        > th {
+          background-color: $light-blue;       
+        }
+      }
+    }
+    .approval-row{
+      background-color: $dark-blue;
+      .approval{
+        background-color: $light-blue;        
+      }
+      .approval-date{
+        background-color: $dark-blue;
+      }
+      .approval-date-enter{
+        background-color: $light-blue;
+        border-right-color: $light-blue;
+      }
+      td{
+        &:last-child{
+          background-color: $dark-blue;   
+        }
+      }
+    }
+  }
+}
+.third-week-wrap {
+  .grid-view-wrap {
+    background-color: $light-orange;
+  }
+  .table.grid-days {
+    > thead {
+      > tr {
+        > th {
+          background-color: $light-orange;       
+        }
+      }
+    }
+    .approval-row{
+      background-color: $dark-orange;
+      .approval{
+        background-color: $light-orange;        
+      }
+      .approval-date{
+        background-color: $dark-orange;
+      }
+      .approval-date-enter{
+        background-color: $light-orange;
+        border-right-color: $light-orange;
+      }
+      td{
+        &:last-child{
+          background-color: $dark-orange;   
+        }
+      }
+    }
+  }
+}
+.fourth-week-wrap {
+  .grid-view-wrap {
+    background-color: $light-green;
+  }
+  .table.grid-days {
+    > thead {
+      > tr {
+        > th {
+          background-color: $light-green;       
+        }
+      }
+    }
+    .approval-row{
+      background-color: $dark-green;
+      .approval{
+        background-color: $light-green;        
+      }
+      .approval-date{
+        background-color: $dark-green;
+      }
+      .approval-date-enter{
+        background-color: $light-green;
+        border-right-color: $light-green;
+      }
+      td{
+        &:last-child{
+          background-color: $dark-green;   
+        }
+      }
+    }
+  }
+}
+.table.grid-days {
+  border-collapse: separate;
+  margin-bottom: 80px;
+  >thead {
+    >tr {
+      >th {
+        background-color: $grid-view-menu-bg;
+        padding: 15px 30px;
+        border-bottom: 0;
+        border-left: 4px solid $light-grey;
+        border-right: 4px solid $light-grey;
+        text-align: center;
+        &:last-child {
+          // width:22px;
+          background-color: $light-grey;
+        }
+      }
+    }
+  }
+  >tbody {
+    >tr {
+      >td {
+        border-left: 4px solid $light-grey;
+        border-right: 4px solid $light-grey;
+        border-top: 0;
+        &:last-child {
+          // width:11%;
+          background-color: $light-grey;
+          padding: 0;
+        }
+      }
+      &.alternate-bg {
+        >td {
+          border-left: 4px solid $alternate-bg;
+          border-right: 4px solid $alternate-bg;
+          &:last-child {
+            // width:11%;
+            background-color: $alternate-bg;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.table.grid-days {
+  thead {
+    tr {
+      >th:first-child {
+        background-color: transparent;
+        border: 0;
+        width: 140px;
+      }
+      >th:nth-child(2) {
+        border-left: 0;
+      }
+    }
+  }
+  tbody {
+    tr {
+      >td:first-child {
+        background-color: transparent;
+        border: 0;
+        font-size: 15px;
+        font-weight: 700;
+        padding-right: 7px;
+        text-align: right;
+      }
+      >td {
+        padding: 11px 15px;
+        background-color: $white;
+        text-align: center;
+        font-size: 15px;
+        line-height: normal;
+        height: 50px;
+        color: $black-light;
+      }
+      >td:nth-child(2) {
+        border-left: 0;
+      }
+      &.alternate-bg {
+        td {
+          background-color: $alternate-bg;
+        }
+        >td:first-child {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+.table.grid-days {
+  .meal-time {
+    td {
+      border-top: 10px solid $light-grey;
+    }
+  }
+  .meal-before-row {
+    td {
+      height: 15px;
+    }
+  }
+}
+.table.grid-days {
+  tbody {
+    tr {
+      td {
+        &.head-row {
+          background-color: $well-bg;
+          text-align: center;
+          color: $white;
+          font-size: 15px;
+          padding: 8px 8px;
+          border-right: 0;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
+.table.grid-days {
+  .approval-row {
+    background: $yellow-color;
+    td {
+      color: $white;
+    }
+    .approval {
+      background: $grid-view-approval-bg;
+      border-right: 0;
+    }
+    .approval-date {
+      background: $yellow-color;
+      border-left: 0;
+      border-right: 0;
+    }
+    .approval-date-enter {
+      background: $grid-view-approval-bg;
+      border-left: 0;
+      border-right-color: #f4b505;
+    }
+    td:last-child {
+      background: $yellow-color;
+      border-left: 0;
+      border-right: 0;
+    }
+  }
+}
+.table.grid-days {
+  tbody {
+    tr {
+      &.meal-time {}
+    }
+  }
+}
+.table.grid-days {
+  >thead {
+    th {
+      h6 {
+        font-size: 15px;
+        line-height: 16px;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 4px;
+      }
+      p {
+        font-size: 15px;
+        line-height: 16px;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

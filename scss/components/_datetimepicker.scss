@@ -1,0 +1,46 @@
+/* Date Time Picker
+-------------------------------------------------- */
+
+.datetimepicker {
+  width: 100%;
+  position: relative;
+  .input-group-addon {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 40px;
+    height: 30px;
+    z-index: 2;
+    cursor: pointer;
+  }
+}
+.img-icon_calendar {
+  width: 16px;
+  height: 16px;
+}
+.bootstrap-datetimepicker-widget {
+  table {
+    thead {
+      tr {
+        th {
+          color: $text-color;
+        }
+      }
+    }
+    td {
+      color: $text-color;
+      &.active, &.active:hover {
+        background-color: $yellow-color;
+        color: $white;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+      }
+      span {
+      	&.active {
+      		background-color: $yellow-color;
+      	}
+      }
+    }
+  }
+} 

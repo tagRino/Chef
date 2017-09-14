@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Admin Recipe Input & Entry View</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material design -->
+    <link href="css/jquery.material.form.css" rel="stylesheet">
+    <!-- Bootstrap date picker -->
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <!-- Bootstrap Select v1.12.2 -->
+    <link href="css/bootstrap-select.css" rel="stylesheet">
+    <!-- Font Awesome 4.7.0 -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- Custom styles CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="admin-menuItems-grid">
+
+    <header class="header">
+        <div class="container-fluid">
+            <div class="header-logo">
+                <div class="header-left">
+                    <a href="javascript:;" title="Logo"> <img src="img/logo.png" alt="Reciepes & Rotations"> </a>
+                </div>
+                <div class="header-right">
+                    <div class="account-sec">
+                        <span class="username hidden-xs">Alfredo Figueroa</span>
+                        <div class="dropdown">
+                            <a href="javascript:;" class="dropdown-toggle user-dropdown" data-toggle="dropdown" title="User">
+                                <img src="img/dummy-user.svg" alt="user">
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Orders</a>
+                                </li>
+                                <li><a href="#">Menu Cover</a>
+                                </li>
+                                <li><a href="#">My Profile</a>
+                                </li>
+                                <li><a href="#">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="menu-section">
+                        <nav class="navbar">
+                                <div class="navbar-header visible-xs">
+                                    <span>Menu</span>
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                                      <span class="sr-only">Toggle navigation</span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>
+                                      <span class="icon-bar"></span>                          
+                                    </button>
+                                  </div>
+                                  <div id="navbar" class="navbar-collapse collapse">
+                                    <ul class="nav navbar-nav">
+                                        <li><a href="#" class="active">Dashboard</a></li>
+                                        <li><a href="#">Menu Rotation</a></li>
+                                        <li><a href="#">Dated Rotation</a></li>
+                                        <li><a href="#">Recipes</a></li>
+                                        <li><a href="#">Ingredients</a></li>
+                                        <li><a href="javascript:;">Users</a></li>
+                                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Administration<span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Ingredients</a></li>
+                                                <li><a href="#">Admin Users</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                   </div>
+                        </nav>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        
+    </header>
+    <!-- /.header -->
+
+    <!-- <div class="page-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Rotation Functions:</h1>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- /.page-header -->
+
+    <section class="well dark-well mb-0">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="column-vertical-divider form-inline">                        
+                        <h4 class="title-border without_line">Receipe Date Range: </h4>
+                        <div class="form-group inline-label">
+                            <label for="recipe-name" class="control-label">From:</label>
+                            <div class="input-group date datetimepicker">
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon">
+                                  <img class="img-icon_calendar" src="img/icon_calendar.png">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group inline-label">
+                            <label for="recipe-name" class="control-label">To:</label>                                    
+                            <div class="input-group date datetimepicker">
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon">
+                                  <img class="img-icon_calendar" src="img/icon_calendar.png">
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group inline-label">
+                            <button type="button" class="btn btn-block btn-success">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-block-col text-right col-sm-5">
+                    <button type="button" class="btn btn-success">Save Dated Rotation</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.well -->
+    <!-- /.well -->
+    <div class="first-week-wrap">
+        <div class="grid-view-wrap">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid-view-heading">
+                            <h4>Week of: February 5, 2017</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.section -->
+        <div class="grid-view-menu">
+            <div class="table-responsive">
+            <table class="table grid-days">
+                <thead>
+                    <tr>
+                        <th>
+                            
+                        </th>
+                        <th>
+                            <h6>Sunday</h6>
+                            <p>5 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Monday</h6>
+                            <p>6 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Tuesday</h6>
+                            <p>7 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Wednesday</h6>
+                            <p>8 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Thursday</h6>
+                            <p>9 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Friday</h6>
+                            <p>10 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Saturday</h6>
+                            <p>11 February 2017</p>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Breakfast</td>
+                  </tr>
+                  <tr>
+                    <td>Hot Cereal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Egg</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td>Omelets</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Meat</td>
+                    <td>Ham Steaks</td>
+                    <td>Bacon</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td>Corned Beef Hash</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Side Starch</td>
+                    <td></td>
+                    <td></td>
+                    <td>Grits</td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Baked Entrée</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>Waffles</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                   <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                    <td>Pancakes</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Bread</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, Biscuits</td>
+                   <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Fruit</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                   <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Lunch</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Meatball Vegetable Soup</td>
+                    <td>Chicken Vegetable Soup</td>
+                    <td>Cream of Tomato Soup</td>
+                    <td>Potato-Leek Soup</td>
+                    <td>French Onion Soup</td>
+                    <td>Chicken & Rice Soup</td>
+                    <td>Egg Drop Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Romaine & Tomatoes Creamy Italian Dressing</td>
+                    <td>Lettuce & Tomato & Ranch Dressing</td>
+                    <td>Cucumber Salad</td>
+                    <td>Lettuce & Tomatoes & Balsamic Vinaigrette</td>
+                   <td>Beet Salad</td>
+                    <td>Lettuce, Tomato & Blue Cheese Salad</td>
+                    <td>Ginger-Cucumber Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Chicken Cacciatore</td>
+                    <td>Homemade Meatloaf</td>
+                    <td>Fried Chicken with Mashed Potatoesp</td>
+                    <td>Seared Fish with Lemon-Butter Sauce</td>
+                    <td>Poached Salmon with Béarnaise</td>
+                    <td>Seared Pork Chops</td>
+                    <td>Stir-Fried Asian Chicken</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td></td>
+                    <td>Sweet Peas</td>
+                    <td>Collard Greens</td>
+                    <td>Green Beans Amandine</td>
+                   <td>Sautéed Spinach</td>
+                    <td>Stewed Tomatoes</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Orecchiette Pasta</td>
+                    <td>Steamed Rice</td>
+                    <td>Cornbread</td>
+                    <td>Rice Pilaf</td>
+                    <td>Steamed Rice</td>
+                    <td>Black-Eyed Peas,Cornbread</td>
+                    <td>Steamed Rice</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Chocolate-Hazelnut Crêpes with Marscarpone Cream</td>
+                    <td>Devil’s Food Cake</td>
+                    <td>Pecan Pie</td>
+                    <td>Chocolate Pudding</td>
+                   <td>German Chocolate Cake</td>
+                    <td>Ambrosia</td>
+                    <td>Fried Bananas with Candied Ginger</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                      <td class="head-row" colspan="8">Dinner</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Chicken Noodle Soup</td>
+                    <td>Split Pea Soup</td>
+                    <td>Lentil Soup with Caraway</td>
+                    <td>Cream of Asparagus Soup</td>
+                    <td>Italian Wedding Soup</td>
+                    <td>Vegetable Soup</td>
+                    <td>Cream of Mushroom Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Grilled Vegetable Salad</td>
+                    <td>Mixed Greens with Black Olives</td>
+                    <td>Baby Spinach Salad with Warm Bacon Dressing</td>
+                    <td>Tomato Salad with Fresh Herbs</td>
+                    <td>Caprese Salad</td>
+                    <td>Lettuce & Tomato with Roasted Peanut Vinaigrette</td>
+                    <td>Lettuce & Tomatoes Poppy Seed Dressing</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Salisbury Steak with Mushroom Gravy</td>
+                    <td>Cold Poached Salmon with Lemon-Dill Vinaigrette</td>
+                    <td>Bratwurst with Sauerkraut </td>
+                    <td>Chicken Pot Pie</td>
+                    <td>Chicken Parmesan</td>
+                    <td>Fried Catfish</td>
+                    <td>Hamburgers</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td>Steamed Broccoli</td>
+                    <td>Tomatoes & Sweet Yellow Peppers </td>
+                    <td></td>
+                    <td></td>
+                    <td>Roasted Eggplant</td>
+                    <td>Cole Slaw</td>
+                    <td>Tomatoes, Lettuce & Pickle</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Roasted Potatoes</td>
+                    <td>Fusilli Pasta Salad with Fresh Herbs</td>
+                    <td>Warm German Potato Salad </td>
+                    <td></td>
+                    <td>Spaghetti with Marinara</td>
+                    <td>Potato Salad & Hush Puppies</td>
+                    <td>French Fries</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Peach Cobbler à la Mode </td>
+                    <td>Cinnamon-Apple Cake </td>
+                    <td>Black Forest Cake</td>
+                    <td>Cheese Cake with Blueberries</td>
+                    <td>Lemon Tart</td>
+                    <td>Banana Pudding</td>
+                    <td>Ice Cream Sandwiches</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="approval-row">
+                      <td class="dietician" colspan="4">Dietitian's Approval</td>
+                      <td class="approval" colspan="2"></td>
+                      <td class="approval-date">Date</td>
+                      <td class="approval-date-enter"></td>
+                      <td></td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="second-week-wrap">
+        <div class="grid-view-wrap">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid-view-heading">
+                            <h4>Week of: March 5, 2017</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.section -->
+        <div class="grid-view-menu">
+            <div class="table-responsive">
+            <table class="table grid-days">
+                <thead>
+                    <tr>
+                        <th>
+                            
+                        </th>
+                        <th>
+                            <h6>Sunday</h6>
+                            <p>5 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Monday</h6>
+                            <p>6 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Tuesday</h6>
+                            <p>7 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Wednesday</h6>
+                            <p>8 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Thursday</h6>
+                            <p>9 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Friday</h6>
+                            <p>10 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Saturday</h6>
+                            <p>11 February 2017</p>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Breakfast</td>
+                  </tr>
+                  <tr>
+                    <td>Hot Cereal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Egg</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td>Omelets</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Meat</td>
+                    <td>Ham Steaks</td>
+                    <td>Bacon</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td>Corned Beef Hash</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Side Starch</td>
+                    <td></td>
+                    <td></td>
+                    <td>Grits</td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Baked Entrée</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>Waffles</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                   <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                    <td>Pancakes</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Bread</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, Biscuits</td>
+                   <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Fruit</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                   <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Lunch</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Meatball Vegetable Soup</td>
+                    <td>Chicken Vegetable Soup</td>
+                    <td>Cream of Tomato Soup</td>
+                    <td>Potato-Leek Soup</td>
+                    <td>French Onion Soup</td>
+                    <td>Chicken & Rice Soup</td>
+                    <td>Egg Drop Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Romaine & Tomatoes Creamy Italian Dressing</td>
+                    <td>Lettuce & Tomato & Ranch Dressing</td>
+                    <td>Cucumber Salad</td>
+                    <td>Lettuce & Tomatoes & Balsamic Vinaigrette</td>
+                   <td>Beet Salad</td>
+                    <td>Lettuce, Tomato & Blue Cheese Salad</td>
+                    <td>Ginger-Cucumber Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Chicken Cacciatore</td>
+                    <td>Homemade Meatloaf</td>
+                    <td>Fried Chicken with Mashed Potatoesp</td>
+                    <td>Seared Fish with Lemon-Butter Sauce</td>
+                    <td>Poached Salmon with Béarnaise</td>
+                    <td>Seared Pork Chops</td>
+                    <td>Stir-Fried Asian Chicken</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td></td>
+                    <td>Sweet Peas</td>
+                    <td>Collard Greens</td>
+                    <td>Green Beans Amandine</td>
+                   <td>Sautéed Spinach</td>
+                    <td>Stewed Tomatoes</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Orecchiette Pasta</td>
+                    <td>Steamed Rice</td>
+                    <td>Cornbread</td>
+                    <td>Rice Pilaf</td>
+                    <td>Steamed Rice</td>
+                    <td>Black-Eyed Peas,Cornbread</td>
+                    <td>Steamed Rice</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Chocolate-Hazelnut Crêpes with Marscarpone Cream</td>
+                    <td>Devil’s Food Cake</td>
+                    <td>Pecan Pie</td>
+                    <td>Chocolate Pudding</td>
+                   <td>German Chocolate Cake</td>
+                    <td>Ambrosia</td>
+                    <td>Fried Bananas with Candied Ginger</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                      <td class="head-row" colspan="8">Dinner</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Chicken Noodle Soup</td>
+                    <td>Split Pea Soup</td>
+                    <td>Lentil Soup with Caraway</td>
+                    <td>Cream of Asparagus Soup</td>
+                    <td>Italian Wedding Soup</td>
+                    <td>Vegetable Soup</td>
+                    <td>Cream of Mushroom Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Grilled Vegetable Salad</td>
+                    <td>Mixed Greens with Black Olives</td>
+                    <td>Baby Spinach Salad with Warm Bacon Dressing</td>
+                    <td>Tomato Salad with Fresh Herbs</td>
+                    <td>Caprese Salad</td>
+                    <td>Lettuce & Tomato with Roasted Peanut Vinaigrette</td>
+                    <td>Lettuce & Tomatoes Poppy Seed Dressing</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Salisbury Steak with Mushroom Gravy</td>
+                    <td>Cold Poached Salmon with Lemon-Dill Vinaigrette</td>
+                    <td>Bratwurst with Sauerkraut </td>
+                    <td>Chicken Pot Pie</td>
+                    <td>Chicken Parmesan</td>
+                    <td>Fried Catfish</td>
+                    <td>Hamburgers</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td>Steamed Broccoli</td>
+                    <td>Tomatoes & Sweet Yellow Peppers </td>
+                    <td></td>
+                    <td></td>
+                    <td>Roasted Eggplant</td>
+                    <td>Cole Slaw</td>
+                    <td>Tomatoes, Lettuce & Pickle</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Roasted Potatoes</td>
+                    <td>Fusilli Pasta Salad with Fresh Herbs</td>
+                    <td>Warm German Potato Salad </td>
+                    <td></td>
+                    <td>Spaghetti with Marinara</td>
+                    <td>Potato Salad & Hush Puppies</td>
+                    <td>French Fries</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Peach Cobbler à la Mode </td>
+                    <td>Cinnamon-Apple Cake </td>
+                    <td>Black Forest Cake</td>
+                    <td>Cheese Cake with Blueberries</td>
+                    <td>Lemon Tart</td>
+                    <td>Banana Pudding</td>
+                    <td>Ice Cream Sandwiches</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="approval-row">
+                      <td class="dietician" colspan="4">Dietitian's Approval</td>
+                      <td class="approval" colspan="2"></td>
+                      <td class="approval-date">Date</td>
+                      <td class="approval-date-enter"></td>
+                      <td></td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="third-week-wrap">
+        <div class="grid-view-wrap">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid-view-heading">
+                            <h4>Week of: March 5, 2017</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.section -->
+        <div class="grid-view-menu">
+            <div class="table-responsive">
+            <table class="table grid-days">
+                <thead>
+                    <tr>
+                        <th>
+                            
+                        </th>
+                        <th>
+                            <h6>Sunday</h6>
+                            <p>5 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Monday</h6>
+                            <p>6 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Tuesday</h6>
+                            <p>7 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Wednesday</h6>
+                            <p>8 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Thursday</h6>
+                            <p>9 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Friday</h6>
+                            <p>10 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Saturday</h6>
+                            <p>11 February 2017</p>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Breakfast</td>
+                  </tr>
+                  <tr>
+                    <td>Hot Cereal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Egg</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td>Omelets</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Meat</td>
+                    <td>Ham Steaks</td>
+                    <td>Bacon</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td>Corned Beef Hash</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Side Starch</td>
+                    <td></td>
+                    <td></td>
+                    <td>Grits</td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Baked Entrée</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>Waffles</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                   <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                    <td>Pancakes</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Bread</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, Biscuits</td>
+                   <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Fruit</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                   <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Lunch</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Meatball Vegetable Soup</td>
+                    <td>Chicken Vegetable Soup</td>
+                    <td>Cream of Tomato Soup</td>
+                    <td>Potato-Leek Soup</td>
+                    <td>French Onion Soup</td>
+                    <td>Chicken & Rice Soup</td>
+                    <td>Egg Drop Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Romaine & Tomatoes Creamy Italian Dressing</td>
+                    <td>Lettuce & Tomato & Ranch Dressing</td>
+                    <td>Cucumber Salad</td>
+                    <td>Lettuce & Tomatoes & Balsamic Vinaigrette</td>
+                   <td>Beet Salad</td>
+                    <td>Lettuce, Tomato & Blue Cheese Salad</td>
+                    <td>Ginger-Cucumber Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Chicken Cacciatore</td>
+                    <td>Homemade Meatloaf</td>
+                    <td>Fried Chicken with Mashed Potatoesp</td>
+                    <td>Seared Fish with Lemon-Butter Sauce</td>
+                    <td>Poached Salmon with Béarnaise</td>
+                    <td>Seared Pork Chops</td>
+                    <td>Stir-Fried Asian Chicken</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td></td>
+                    <td>Sweet Peas</td>
+                    <td>Collard Greens</td>
+                    <td>Green Beans Amandine</td>
+                   <td>Sautéed Spinach</td>
+                    <td>Stewed Tomatoes</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Orecchiette Pasta</td>
+                    <td>Steamed Rice</td>
+                    <td>Cornbread</td>
+                    <td>Rice Pilaf</td>
+                    <td>Steamed Rice</td>
+                    <td>Black-Eyed Peas,Cornbread</td>
+                    <td>Steamed Rice</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Chocolate-Hazelnut Crêpes with Marscarpone Cream</td>
+                    <td>Devil’s Food Cake</td>
+                    <td>Pecan Pie</td>
+                    <td>Chocolate Pudding</td>
+                   <td>German Chocolate Cake</td>
+                    <td>Ambrosia</td>
+                    <td>Fried Bananas with Candied Ginger</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                      <td class="head-row" colspan="8">Dinner</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Chicken Noodle Soup</td>
+                    <td>Split Pea Soup</td>
+                    <td>Lentil Soup with Caraway</td>
+                    <td>Cream of Asparagus Soup</td>
+                    <td>Italian Wedding Soup</td>
+                    <td>Vegetable Soup</td>
+                    <td>Cream of Mushroom Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Grilled Vegetable Salad</td>
+                    <td>Mixed Greens with Black Olives</td>
+                    <td>Baby Spinach Salad with Warm Bacon Dressing</td>
+                    <td>Tomato Salad with Fresh Herbs</td>
+                    <td>Caprese Salad</td>
+                    <td>Lettuce & Tomato with Roasted Peanut Vinaigrette</td>
+                    <td>Lettuce & Tomatoes Poppy Seed Dressing</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Salisbury Steak with Mushroom Gravy</td>
+                    <td>Cold Poached Salmon with Lemon-Dill Vinaigrette</td>
+                    <td>Bratwurst with Sauerkraut </td>
+                    <td>Chicken Pot Pie</td>
+                    <td>Chicken Parmesan</td>
+                    <td>Fried Catfish</td>
+                    <td>Hamburgers</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td>Steamed Broccoli</td>
+                    <td>Tomatoes & Sweet Yellow Peppers </td>
+                    <td></td>
+                    <td></td>
+                    <td>Roasted Eggplant</td>
+                    <td>Cole Slaw</td>
+                    <td>Tomatoes, Lettuce & Pickle</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Roasted Potatoes</td>
+                    <td>Fusilli Pasta Salad with Fresh Herbs</td>
+                    <td>Warm German Potato Salad </td>
+                    <td></td>
+                    <td>Spaghetti with Marinara</td>
+                    <td>Potato Salad & Hush Puppies</td>
+                    <td>French Fries</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Peach Cobbler à la Mode </td>
+                    <td>Cinnamon-Apple Cake </td>
+                    <td>Black Forest Cake</td>
+                    <td>Cheese Cake with Blueberries</td>
+                    <td>Lemon Tart</td>
+                    <td>Banana Pudding</td>
+                    <td>Ice Cream Sandwiches</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="approval-row">
+                      <td class="dietician" colspan="4">Dietitian's Approval</td>
+                      <td class="approval" colspan="2"></td>
+                      <td class="approval-date">Date</td>
+                      <td class="approval-date-enter"></td>
+                      <td></td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <div class="fourth-week-wrap">
+        <div class="grid-view-wrap">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="grid-view-heading">
+                            <h4>Week of: March 5, 2017</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.section -->
+        <div class="grid-view-menu">
+            <div class="table-responsive">
+            <table class="table grid-days">
+                <thead>
+                    <tr>
+                        <th>
+                            
+                        </th>
+                        <th>
+                            <h6>Sunday</h6>
+                            <p>5 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Monday</h6>
+                            <p>6 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Tuesday</h6>
+                            <p>7 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Wednesday</h6>
+                            <p>8 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Thursday</h6>
+                            <p>9 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Friday</h6>
+                            <p>10 February 2017</p>
+                        </th>
+                        <th>
+                            <h6>Saturday</h6>
+                            <p>11 February 2017</p>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Breakfast</td>
+                  </tr>
+                  <tr>
+                    <td>Hot Cereal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td>Oatmeal</td>
+                    <td>Cream of Wheat</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Egg</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td>Omelets</td>
+                    <td>Omelets</td>
+                    <td>Poached Eggs</td>
+                    <td>Scrambled Eggs</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Meat</td>
+                    <td>Ham Steaks</td>
+                    <td>Bacon</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td>Corned Beef Hash</td>
+                    <td>Ham Steaks</td>
+                    <td>Sausage Patties</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Side Starch</td>
+                    <td></td>
+                    <td></td>
+                    <td>Grits</td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td>Hash Browns</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Baked Entrée</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>Waffles</td>
+                    <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                   <td>Biscuits & Gravy</td>
+                    <td>French Toast</td>
+                    <td>Pancakes</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Bread</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td>Toast, Biscuits</td>
+                   <td>Toast, Muffins</td>
+                    <td>Toast, English Muffins</td>
+                    <td>Toast, Muffins</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Fruit</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                   <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td>Fruit Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-time">
+                    <td></td>
+                      <td class="head-row" colspan="8">Lunch</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Meatball Vegetable Soup</td>
+                    <td>Chicken Vegetable Soup</td>
+                    <td>Cream of Tomato Soup</td>
+                    <td>Potato-Leek Soup</td>
+                    <td>French Onion Soup</td>
+                    <td>Chicken & Rice Soup</td>
+                    <td>Egg Drop Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Romaine & Tomatoes Creamy Italian Dressing</td>
+                    <td>Lettuce & Tomato & Ranch Dressing</td>
+                    <td>Cucumber Salad</td>
+                    <td>Lettuce & Tomatoes & Balsamic Vinaigrette</td>
+                   <td>Beet Salad</td>
+                    <td>Lettuce, Tomato & Blue Cheese Salad</td>
+                    <td>Ginger-Cucumber Salad</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Chicken Cacciatore</td>
+                    <td>Homemade Meatloaf</td>
+                    <td>Fried Chicken with Mashed Potatoesp</td>
+                    <td>Seared Fish with Lemon-Butter Sauce</td>
+                    <td>Poached Salmon with Béarnaise</td>
+                    <td>Seared Pork Chops</td>
+                    <td>Stir-Fried Asian Chicken</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td></td>
+                    <td>Sweet Peas</td>
+                    <td>Collard Greens</td>
+                    <td>Green Beans Amandine</td>
+                   <td>Sautéed Spinach</td>
+                    <td>Stewed Tomatoes</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Orecchiette Pasta</td>
+                    <td>Steamed Rice</td>
+                    <td>Cornbread</td>
+                    <td>Rice Pilaf</td>
+                    <td>Steamed Rice</td>
+                    <td>Black-Eyed Peas,Cornbread</td>
+                    <td>Steamed Rice</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Chocolate-Hazelnut Crêpes with Marscarpone Cream</td>
+                    <td>Devil’s Food Cake</td>
+                    <td>Pecan Pie</td>
+                    <td>Chocolate Pudding</td>
+                   <td>German Chocolate Cake</td>
+                    <td>Ambrosia</td>
+                    <td>Fried Bananas with Candied Ginger</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                      <td class="head-row" colspan="8">Dinner</td>
+                  </tr>
+                  <tr>
+                    <td>Soup</td>
+                    <td>Chicken Noodle Soup</td>
+                    <td>Split Pea Soup</td>
+                    <td>Lentil Soup with Caraway</td>
+                    <td>Cream of Asparagus Soup</td>
+                    <td>Italian Wedding Soup</td>
+                    <td>Vegetable Soup</td>
+                    <td>Cream of Mushroom Soup</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Salad</td>
+                    <td>Grilled Vegetable Salad</td>
+                    <td>Mixed Greens with Black Olives</td>
+                    <td>Baby Spinach Salad with Warm Bacon Dressing</td>
+                    <td>Tomato Salad with Fresh Herbs</td>
+                    <td>Caprese Salad</td>
+                    <td>Lettuce & Tomato with Roasted Peanut Vinaigrette</td>
+                    <td>Lettuce & Tomatoes Poppy Seed Dressing</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Entrée</td>
+                    <td>Salisbury Steak with Mushroom Gravy</td>
+                    <td>Cold Poached Salmon with Lemon-Dill Vinaigrette</td>
+                    <td>Bratwurst with Sauerkraut </td>
+                    <td>Chicken Pot Pie</td>
+                    <td>Chicken Parmesan</td>
+                    <td>Fried Catfish</td>
+                    <td>Hamburgers</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Vegetable</td>
+                    <td>Steamed Broccoli</td>
+                    <td>Tomatoes & Sweet Yellow Peppers </td>
+                    <td></td>
+                    <td></td>
+                    <td>Roasted Eggplant</td>
+                    <td>Cole Slaw</td>
+                    <td>Tomatoes, Lettuce & Pickle</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Starch</td>
+                    <td>Roasted Potatoes</td>
+                    <td>Fusilli Pasta Salad with Fresh Herbs</td>
+                    <td>Warm German Potato Salad </td>
+                    <td></td>
+                    <td>Spaghetti with Marinara</td>
+                    <td>Potato Salad & Hush Puppies</td>
+                    <td>French Fries</td>
+                    <td></td>
+                  </tr>
+                  <tr class="alternate-bg">
+                    <td>Dessert</td>
+                    <td>Peach Cobbler à la Mode </td>
+                    <td>Cinnamon-Apple Cake </td>
+                    <td>Black Forest Cake</td>
+                    <td>Cheese Cake with Blueberries</td>
+                    <td>Lemon Tart</td>
+                    <td>Banana Pudding</td>
+                    <td>Ice Cream Sandwiches</td>
+                    <td></td>
+                  </tr>
+                  <tr class="meal-before-row">
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr class="approval-row">
+                      <td class="dietician" colspan="4">Dietitian's Approval</td>
+                      <td class="approval" colspan="2"></td>
+                      <td class="approval-date">Date</td>
+                      <td class="approval-date-enter"></td>
+                      <td></td>
+                  </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+    <footer class="footer sticky-footer">
+        <div class="container-fluid">
+            <p>&copy; 2017 Genuine Hospitality Consulting. All Rights Reserved.</p>
+            <p>The recipes herein are original works of authorship of Joe Abuso, Principal, Genunie Hospitality Consulting, and are the exclusive and confidential property of Genuine Hospitality Consulting.</p>
+        </div>
+    </footer>
+    <!-- /.footer -->
+
+    <!-- || MODAL : ADD RECIPE HEADER || -->
+    <div class="modal fade" id="add-recipe-header" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Add New Header</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-vertical form-horizontal-style material mb-0">
+                        <div class="form-group">
+                            <label for="recipe-name" class="control-label col-md-12">Add a Header:</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Add Header</button>
+                        </div>
+                    </div>
+                    <!-- /.form-vertical -->
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- || MODAL : ADD NEW STEP || -->
+    <div class="modal fade" id="add-new-step" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Add New Step</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-vertical form-horizontal-style material mb-0">
+                        <div class="form-group">
+                            <label for="recipe-name" class="control-label col-md-12">Add a Step:</label>
+                            <div class="col-md-12">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Add Step</button>
+                        </div>
+                    </div>
+                    <!-- /.form-vertical -->
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+    <!-- jQuery 2.2.3 -->
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- Moment -->
+    <script type="text/javascript" src="js/moment-with-locales.js"></script>
+    <!-- Boostrap date picker -->
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <!-- Jquery material form plugin -->
+    <script type="text/javascript" src="js/jquery.material.form.min.js"></script>
+    <!-- Bootstrap Select v1.12.2 -->
+    <script type="text/javascript" src="js/bootstrap-select.js"></script>
+    <!-- Nicescroll -->
+    <script type="text/javascript" src="http://areaaperta.com/nicescroll/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/jquery.nicescroll.js"></script>
+    <!-- Datatables -->
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <!-- Custom Script -->
+    <script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+</html>

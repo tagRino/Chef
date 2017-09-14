@@ -1,0 +1,36 @@
+/* Base CSS style
+-------------------------------------------------- */
+a:active,
+a:hover,
+a:focus,
+*:focus {
+  outline-width: 0;
+  outline: none;
+}
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 65px;
+  background: $body-bg;
+  color: $text-color;
+  font-family: $font-family-base;
+  font-weight: $font-weight-regular;
+}
+
+@media (max-width: $screen-xs-max) {
+	body {
+	  margin-bottom: 0;
+	}
+}

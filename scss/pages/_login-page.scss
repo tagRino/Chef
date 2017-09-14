@@ -1,0 +1,21 @@
+.login-wrap {
+  background: $white url(../img/login-bg.jpg) no-repeat;
+  background-position: right center;
+  height: 100%;
+  background-size: contain;
+  .form-wrap {
+    .btn {
+      margin-top: 20px;
+    }
+  }
+  .form-link {
+    float: right;
+    margin-top: 10px;
+    color: $black-light;
+    + {
+      .form-link {
+        float: left;
+      }
+    }
+  }
+}
