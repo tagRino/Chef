@@ -282,15 +282,12 @@ p {
 -------------------------------------------------- */
 
 .fixed-height .container {
-  display: table;
+  /*display: table;*/
   height: 100%;
   width: 100%;
 }
 .fixed-height .container .row {
-  display: table-cell;
-  height: 100%;
-  width: 100%;
-  vertical-align: middle;
+
 }
 .lr-br {
   border-left: 1px solid #d6d6d6;
@@ -338,7 +335,7 @@ p {
 }
 .header-logo .header-left {
       float: left;
-  left: 0;
+      padding-bottom: 5px;
 }
 .header-logo .header-left img {
   width: 235px;
@@ -630,7 +627,7 @@ select:focus, input:focus {
 }
 .form-horizontal-style .form-group .control-label {
   color: #f4b505;
-  font-size: 13px;
+  font-size: 18px;
 }
 .form-horizontal-style.form-white-wrap .form-group .control-label {
   color: #666;
@@ -744,9 +741,20 @@ select:focus, input:focus {
   margin-bottom: 40px;
 }
 .form-wrap.middle-form {
-  max-width: 380px;
+  max-width: 600px;
   width: 100%;
+  margin: 5% auto 0;
+}
+.form-wrap.middle-form .form-vertical{
+  max-width: 500px;
   margin: 0 auto;
+}
+.login-foot {
+    margin-top: 8%;
+}
+.form-wrap h4 {
+    line-height: normal;
+    margin-bottom: 30px;
 }
 /* fixed width forms
 -------------------------------------------------- */
@@ -776,11 +784,13 @@ input:-webkit-autofill:hover, input:-webkit-autofill:focus input:-webkit-autofil
 
 .btn {
   border-radius: 0;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 700;
   height: 30px;
+  line-height: 21px;
   padding: 3px 28px;
   text-transform: uppercase;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 .btn:hover, .btn:focus, .btn.focus {
   color: #333;
@@ -795,7 +805,7 @@ input:-webkit-autofill:hover, input:-webkit-autofill:focus input:-webkit-autofil
   outline: none;
 }
 .btn.btn-md {
-  padding: 10px 28px;
+  padding: 7px 28px;
   height: 40px;
 }
 .btn-max-width {
@@ -831,9 +841,9 @@ input:-webkit-autofill:hover, input:-webkit-autofill:focus input:-webkit-autofil
 /* Success Button */
 
 .btn-success {
-  background-color: #82b440;
-  border-color: #82b440;
-  color: #fff;
+  background-color: #8ba241;
+    border-color: #8ba241;
+    color: #353535;
 }
 .btn-success:focus, .btn-success.focus {
   background-color: #96c459;
@@ -1794,11 +1804,25 @@ table.dataTable tbody tr:hover .td-action-close {
 }
 .login-wrap .form-link {
   float: right;
-  margin-top: 10px;
-  color: #333333;
+  margin-top: 10px;    font-size: 17px;
 }
 .login-wrap .form-link + .form-link {
   float: left;
+}
+.login-foot h2{
+  font-weight: bold;
+  display: inline-block;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.login-foot a{
+  color: #353535;
+}
+.login-foot h3{
+  font-size: 16px;
+  margin-top: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: bold;
 }
 /*Admin menu items grid view*/
 
@@ -1817,6 +1841,13 @@ table.dataTable tbody tr:hover .td-action-close {
   font-weight: 300;
   line-height: 27px;
   margin: 0;
+}
+
+.title-head h1{
+  font-weight: 700;
+  font-weight: 700;
+  color: #f4b505;
+  font-size: 50px;
 }
 .grid-view-menu {
   padding-top: 16px;
@@ -1900,6 +1931,7 @@ table.dataTable tbody tr:hover .td-action-close {
 }
 .table.grid-days {
   border-collapse: separate;
+  table-layout: fixed;
   margin-bottom: 80px;
 }
 .table.grid-days > thead > tr > th {
@@ -1910,9 +1942,9 @@ table.dataTable tbody tr:hover .td-action-close {
   border-right: 4px solid #f3f3f3;
   text-align: center;
 }
-.table.grid-days > thead > tr > th:last-child {
+/*.table.grid-days > thead > tr > th:last-child {
   background-color: #f3f3f3;
-}
+}*/
 .table.grid-days > tbody > tr > td {
   border-left: 4px solid #f3f3f3;
   border-right: 4px solid #f3f3f3;
@@ -1938,12 +1970,16 @@ table.dataTable tbody tr:hover .td-action-close {
   border-left: 0;
 }
 .table.grid-days tbody tr > td:first-child {
-  background-color: transparent;
+  background-color: #fcdd1a;
   border: 0;
+  border-top: 10px solid #f3f3f3;
   font-size: 15px;
   font-weight: 700;
   padding-right: 7px;
   text-align: right;
+}
+.table.grid-days tbody tr.alternate-bg > td:first-child {
+  background-color: #fcdd1a;
 }
 .table.grid-days tbody tr > td {
   padding: 11px 15px;
@@ -1963,9 +1999,6 @@ table.dataTable tbody tr:hover .td-action-close {
 .table.grid-days tbody tr.alternate-bg td {
   background-color: #eaeaea;
 }
-.table.grid-days tbody tr.alternate-bg > td:first-child {
-  background-color: transparent;
-}
 .table.grid-days .meal-time td {
   border-top: 10px solid #f3f3f3;
 }
@@ -1973,13 +2006,16 @@ table.dataTable tbody tr:hover .td-action-close {
   height: 15px;
 }
 .table.grid-days tbody tr td.head-row {
-  background-color: #666;
+  background-color: #fcdd1a;
   text-align: center;
-  color: #fff;
+  color: #000000;
   font-size: 15px;
   padding: 8px 8px;
   font-weight: 700;
   width: 180px;
+}
+.table.grid-days tbody tr.meal-time > td:first-child{
+  background: transparent;
 }
 .table.grid-days .approval-row {
   background: #f4b505;
@@ -2359,20 +2395,6 @@ table.dataTable tbody tr:hover .td-action-close {
   padding: 2%;
 }
 /*UI-changes*/
-/*login-page*/
-/*.form-vertical.form-horizontal-style.material.form-categories .control-label{
-  position: absolute;
-  top: 6px;
-  left: 0px;
-    transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
-}
-.form-vertical.form-horizontal-style.material.form-categories .form-group{
-  position: relative;
-}
-*/
-
 .login-wrap .container {
   background: #fff url("assets/login-bg.jpg") no-repeat;
   background-position: right center;
@@ -2384,14 +2406,8 @@ table.dataTable tbody tr:hover .td-action-close {
   color: #333333;
   opacity: 1;
 }
-/*.form-vertical.form-horizontal-style.material.form-categories .form-control:focus ~ .control-label, 
-.form-vertical.form-horizontal-style.material.form-categories .form-control:valid ~ .control-label   {
-  top:-20px;
-  font-size:14px;
-  color:#5264AE;
-}*/
-/*chef-page*/
 
+/*chef-page*/
 .search-bar {
   margin-bottom: 0px;
   padding: 0px 22px 0px 0px;
