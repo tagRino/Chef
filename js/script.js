@@ -76,7 +76,7 @@ $(document).ready(function() {
         if ($(".aside .filter-wrap")[0]) {        
             asideHeight();
         }
-        if ($(".grid-view-menu .table-responsive")[0]) { 
+        if ($(".grid-view-menu .scroll-body")[0]) { 
             tableHeight();
         }
     });
@@ -85,15 +85,15 @@ $(document).ready(function() {
     function tableHeight() {
         var windowHeight = $(window).outerHeight();
         var footerHeight = $('footer').outerHeight();
-        var headerHeight = $('.grid-view-menu .table-responsive').offset().top;
+        var headerHeight = $('.grid-view-menu .scroll-body').offset().top;
         var screenHeight = headerHeight + footerHeight;
         var sectionHeight = windowHeight - screenHeight;
-        $('.grid-view-menu .table-responsive').css('height', sectionHeight).niceScroll({
+        $('.grid-view-menu .scroll-body').css('height', sectionHeight).niceScroll({
             cursorcolor: "#f90",
             cursorwidth: "8px"
         });
     }
-    if ($(".grid-view-menu .table-responsive")[0]) { 
+    if ($(".grid-view-menu .scroll-body")[0]) { 
         tableHeight();
     }
 
