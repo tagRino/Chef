@@ -1997,9 +1997,9 @@ table.dataTable tbody tr:hover .td-action-close {
 .fourth-week-wrap .table.grid-days > thead > tr > th {
   background-color: #FFB3B3;
 }
-/* .fourth-week-wrap .table.grid-days > thead > tr > th:first-child {
+.fourth-week-wrap .table.grid-days > thead > tr > th:first-child {
     background-color: transparent;
-} */
+} 
 .fourth-week-wrap .table.grid-days .approval-row {
   background-color: #4594da;
 }
@@ -2025,9 +2025,9 @@ table.dataTable tbody tr:hover .td-action-close {
 .third-week-wrap .table.grid-days > thead > tr > th {
   background-color: #8ac13f;
 }
-/* .third-week-wrap .table.grid-days > thead > tr > th:first-child{
+.third-week-wrap .table.grid-days > thead > tr > th:first-child{
   background-color: transparent;
-} */
+}
 .third-week-wrap .table.grid-days .approval-row {
   background-color: #d8e4bc;
 }
@@ -2053,9 +2053,9 @@ table.dataTable tbody tr:hover .td-action-close {
 .second-week-wrap .table.grid-days > thead > tr > th {
   background-color: #316b9e;
 }
-/* .second-week-wrap .table.grid-days > thead > tr > th:first-child{
+.second-week-wrap .table.grid-days > thead > tr > th:first-child{
   background-color: transparent;
-} */
+} 
 .second-week-wrap .table.grid-days .approval-row {
   background-color: #C5D9F1;
 }
@@ -3342,6 +3342,12 @@ table.dataTable.recipe tr td {
 .table.grid-days.gridmenu-days thead tr > th:first-child {
   background-color: #fcdd1a;
 }
+.table.grid-days.gridmenu-days thead tr > th{
+  background-color: #FCDD1A;
+}
+.second-week-wrap .table.grid-days.gridmenu-days thead tr > th{
+  background-color: #316b9e;
+}
 .second-week-wrap .table.grid-days.gridmenu-days tbody tr > td {
       border-right: 11px solid #8DB4E2;
 }
@@ -3355,7 +3361,9 @@ table.dataTable.recipe tr td {
 .second-week-wrap .table.grid-days.gridmenu-days tbody tr > td.dinner-menu{
   border-right: 11px solid #C5D9F1;
 }
-
+.third-week-wrap .table.grid-days.gridmenu-days thead tr > th{
+  background-color: #8AC13F;
+}
 .third-week-wrap .table.grid-days.gridmenu-days tbody tr > td {
       border-right: 11px solid #C4E09F;
 }
@@ -3368,6 +3376,9 @@ table.dataTable.recipe tr td {
 } 
 .third-week-wrap .table.grid-days.gridmenu-days tbody tr > td.dinner-menu{
   border-right: 11px solid #E7F2D8;
+}
+.fourth-week-wrap .table.grid-days.gridmenu-days thead tr > th{
+  background-color: #FFB3B3;
 }
 .fourth-week-wrap .table.grid-days.gridmenu-days tbody tr > td {
       border-right: 11px solid #FFCCCC;
