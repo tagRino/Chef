@@ -1861,7 +1861,7 @@ table.dataTable tbody tr:hover .td-action-close {
 }
 .table.grid-days {
   border-collapse: separate;
-  margin-bottom: 80px;
+  margin-bottom: 0;
 }
 .table.grid-days > thead > tr > th {
   background-color: #fcdd1a;
@@ -1911,6 +1911,9 @@ table.dataTable tbody tr:hover .td-action-close {
   line-height: normal;
   height: 50px;
   color: #333333;
+}
+.first-week-wrap .table.grid-days tbody tr > td.input-td.break-item input {
+    color: #353535;
 }
 /*Highlight*/
 .table.grid-days tbody tr > td.highlight {
@@ -2091,12 +2094,14 @@ table.dataTable tbody tr:hover .td-action-close {
 }
 .first-week-wrap .table.grid-days tbody tr.breakfast td.head-row {
     background-color: #FCDD1A;
+    color: #353535;
 }
 .first-week-wrap .table.grid-days tbody tr > td.break-bg {
   background-color:#FCDD1A;
 }
 .first-week-wrap .table.grid-days tbody tr > td.break-item {
   background-color: #FCDD1A;
+  color: #353535;
 }
 .first-week-wrap .table.grid-days tbody tr.lunch td.head-row {
   background-color: #FFF158;
@@ -2255,12 +2260,19 @@ table.dataTable tbody tr:hover .td-action-close {
 }
 .table.grid-days > thead > tr > th.transparent-bg {
   background-color: transparent;
+  width: 60px;
+}
+table.table.grid-days.header-table {
+    margin-bottom: 0;
 }
 .table.grid-days tbody tr > td.break-item{
   color:#fff;
 }
 .table.grid-days tbody tr.breakfast td.head-row{
   color: #fff;
+}
+.grid-view-menu .table-responsive{
+  min-height: 300px;
 }
 
 /*color pallette ends here*/

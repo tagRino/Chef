@@ -76,7 +76,28 @@ $(document).ready(function() {
         if ($(".aside .filter-wrap")[0]) {        
             asideHeight();
         }
+        if ($(".grid-view-menu .table-responsive")[0]) { 
+            tableHeight();
+        }
     });
+
+    //Table-height
+    function tableHeight() {
+        var windowHeight = $(window).outerHeight();
+        var footerHeight = $('footer').outerHeight();
+        var headerHeight = $('.grid-view-menu .table-responsive').offset().top;
+        var screenHeight = headerHeight + footerHeight;
+        var sectionHeight = windowHeight - screenHeight;
+        $('.grid-view-menu .table-responsive').css('height', sectionHeight).niceScroll({
+            cursorcolor: "#f90",
+            cursorwidth: "8px"
+        });
+    }
+    if ($(".grid-view-menu .table-responsive")[0]) { 
+        tableHeight();
+    }
+
+
     
 
 

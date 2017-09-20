@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Astoundz</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Tahoma, Verdana, Segoe, sans-serif;
+    }
+    .pdf-header {
+        padding: 10px 30px;
+    }
+    h1 {
+        font-size: 18pt;
+        line-height: 20pt;
+        color: #4b5557;
+        font-weight: 300;
+        text-align: center;
+    }
+    .dark-bg {
+        padding: 0px 30px;
+        overflow: hidden;
+        width: 100%;
+    }
+    .left-column-receipe {
+        float: left;
+        width: 60%;
+    }
+    .sub-title {
+        font-size: 16px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+    .title-border {
+        font-size: 18px;
+        line-height: 20px;
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-bottom: 0;
+        position: relative;
+        font-weight: 400;
+        border-bottom: 3px solid #333;
+    }
+    .label {
+        font-weight: 700;
+        color: #000000;
+        font-size: 14px;
+        line-height: 25px;
+        text-align: right;
+        padding-right: 20px;
+    }
+    .portion-size {
+        font-size: 14px;
+        line-height: 25px;
+    }
+    .middle-column-receipe {
+        width: 40%;
+        float: left;
+    }
+    .right-column {
+        float: left;
+        width: 100%;
+    }
+    .note {
+        width: 100%;
+        padding: 18px 0px;
+    }
+    .note h4 {
+        font-weight: 700;
+        font-size: 14px;
+        display: inline-block;
+        line-height: 27px;
+    }
+    .note p {
+        font-size: 16px;
+        line-height: normal;
+    }
+    .main-content {
+        background: #ffffff;
+        padding: 0 30px;
+    }
+    .table-report {
+        display: table;
+        border-bottom: 2px solid #000;
+        margin-bottom: 5px;
+        border-top: 2px solid #000;
+    }
+    .table-report thead {
+        border-bottom: 2px solid #000;
+    }
+    .table-report th {
+        font-size: 15px;
+        line-height: 17px;
+        font-weight: 600;
+        color: #333333;
+        padding: 4px 0px;
+    }
+    .table-report tr th:first-child{
+        padding-right: 30px;
+    }
+    .left-columns {
+        text-align: right;
+    }
+    .right-columns {
+        text-align: left;
+    }
+    .receipe-name {
+    }
+    .receipe-name td {
+        padding: 5px 24px;
+        color: #333333;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .receipe-content td {
+        padding: 4px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+    }
+    .receipe-content td:first-child {
+        text-align: right;
+        width: 25%;
+        padding-right: 30px;
+    }
+    .receipe-content td:last-child {
+        text-align: left;
+        padding-left: 0;
+    }
+    .receipe-content.last-entry td {
+        border-bottom: 0;
+    }
+    .steps {
+       padding-left: 3%;
+    padding-right: 3%;
+    display: inline-block;
+    width: 100%;
+    }
+    .steps h1 {
+        font-size: 20px;
+    line-height: 33px;
+    padding-top: 0;
+    float: left;
+    text-align: right;
+    width: 8%;
+    color: #000;
+    font-weight: bold;
+    }
+    .light-gray-bg {
+        padding: 5px 12px;
+        display: block;
+        float: left;
+        width: 92%;
+    }
+    .light-gray-bg ol {
+        font-size: 15px;
+        padding-left: 0;
+        counter-reset: list;
+        margin-bottom: 0;
+    }
+    .order-list li:before{
+        content: counter(list) ") ";
+        counter-increment: list;
+        font-weight: bold;
+        position: absolute;
+        left: -30px;
+            top: 50%;
+    margin-top: -9px;
+    }
+    .order-list li {
+        position: relative;
+        padding: 6px 0;
+        font-size: 15px;
+        border-bottom: 1px solid #ccc;
+        list-style: none;
+        margin-left: 30px;
+    }
+    .dietician-approval {
+        color: #000000;
+        font-size: 13px;
+        padding: 10px 30px;
+        font-weight: normal;
+        overflow: hidden;
+        width: 100%;
+    }
+    .deitician-name {
+        display: inline-block;
+        float: left;
+    }
+    .date {
+        display: inline-block;
+        float: right;
+    }
+    .date p{
+    	display:inline-block;
+            text-align: right;
+    }
+    .date-value{
+    	font-weight:300;
+    }
+    .recipe-detail th{
+        font-weight: bold;
+        font-size: 15px;
+        padding-bottom: 10px;
+    }
+    .label-right{
+        text-align: right;
+        white-space: nowrap;
+        width: 25%;
+        padding-right: 30px;
+    }
+    .recipe-detail td{
+        font-size: 14px;
+        padding: 4px;
+    }
+    .recipe-detail td.label-right{
+        padding-right: 30px;
+        font-style: italic;
+    }
+    .recipe-detail td span:not(.quantity){
+        padding-left: 20px;
+    }
+    span.quantity {
+        display: inline-block;
+        min-width: 50px;
+    }
+    .normal-txt{
+        font-weight: normal !important;
+    }
+    .note-info{
+      display: inline-block;
+      width: 100%;
+      font-size: 15px;
+      padding-top: 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #000;
+    }
+    .recipe-detail thead td {
+        padding: 0;
+        line-height: 23px;
+        padding-top: 20px;
+    }
+    .recipe-detail thead td h5{
+        font-weight: 400;
+        font-size: 15px;
+    }
+    .signature{
+        text-align: right;
+    }
+    .signature h3{
+        font-size: 14px;
+        font-weight: normal;
+        margin:0;
+    }
+    .signature {
+        text-align: left;
+        float: right;
+        margin: 0px 0 20px;
+    }
+    hr {
+        border-color: #000;
+        margin-bottom: 7px;
+    }
+    .full-page-pdf{
+        position: relative;
+        min-height:100%;
+        width: 100%;
+    }
+    html, body{
+        height: 100%;
+        width: 100%;
+        position: relative;
+        
+    }
+    body{
+        padding-bottom: 65px;
+    }
+    .pdf-footer{
+        position: absolute;
+        bottom: -65px;
+        width: 100%;
+    }
+    @media print{
+		@page{
+			margin: 10px;
+			padding: 0 0 55px 0;
+		}
+        body{
+            padding-bottom: 55px;
+        }
+        .main-content{
+            padding: 0;
+        }
+        .dietician-approval{
+            padding: 15px 0 10px 0;
+        }
+	}
+    </style>
+
+    <body>
+        
+        <section class="full-page-pdf">
+            <section class="main-content">
+                <table border="0" cellspacing="0" width="100%" style="border-collapse: collapse;" class="recipe-detail">            
+                        <thead>                     
+                            <tr>
+                                <td colspan="1" valign="top">
+                                    <img src="img/recipe-logo.png" alt="logo">
+                                </td>
+                                <td colspan="2" align="right">
+                                    <h2 style="border-bottom:1px dotted #000; font-size: 25px; padding-bottom: 5px;">Fajita Veg: Salsa, Guacamole &amp; Pico de Gallo</h2>
+                                    <h5>VEGG-1044</h5>
+                                    <p>Kitchen Station: Vegetable</p>
+                                    <p>Menu Item Recipe</p>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>    
+                            <tr>
+                                <th colspan="3">
+                                    <div  style="height: 4px; background: #000;"></div>
+                                </th>
+                            </tr>                                        
+                            <tr>
+                                <td class="label-right"><strong>Scaled Recipe in Portions:</strong></td>
+                                <td colspan="2"><span class="quantity">48</span> <span>Portions </span></td>
+                            </tr>
+                            <tr>
+                                <td class="label-right"><strong>Scaled Recipe Yield:</strong></td>
+                                <td colspan="2"><span class="quantity">3</span> <span>Gallons </span></td>
+                            </tr>
+                            <tr>
+                                <th colspan="3">
+                                </th>
+                            </tr>                                        
+                            
+                        </tbody>
+                </table>
+                
+            </section>
+            <section class="main-content">
+                <table border="0" cellspacing="0" width="100%" style="border-collapse: collapse;" class="table-report">
+                    <thead>
+                        <tr>
+                            <th class="left-columns">Amounts</th>
+                            <th class="right-columns">Ingredients</th>
+                        </tr>
+                        <tr>
+                            <th colspan="3" style=" padding: 0;">
+                                <div  style="height: 2px; background: #000; margin-bottom: 2px;"></div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>                   
+                        <tr class="receipe-content">
+                            <td>
+                                3 #
+                            </td>
+                            <td>
+                                Beef, Ground
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                ½ Cup
+                            </td>
+                            <td>
+                                Panko
+                            </td>
+                            
+                        </tr>
+                        
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr class="receipe-content">
+                            <td>
+                                2 tsp
+                            </td>
+                            <td>
+                                Kosher Salt
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <th colspan="3" style=" padding: 0;">
+                                <div  style="height: 2px; background: #000; margin-bottom: 2px;"></div>
+                            </th>
+                        </tr>
+           
+                        
+                       
+                    </tbody>
+                </table>
+            </section>
+            <section class="steps">
+                <h1>Steps</h1>
+                <div class="light-gray-bg">
+                    <ol class="order-list">
+                        <li><strong>For the Meatballs:</strong> Make 1" meatballs from indicated ingredients. Don't overmix.</li>
+                        <li>Brown in olive oil. Reserve.</li>
+                        <li><strong>For the Soup:</strong> Sweat onions and garlic in oil. Add stock and bring to simmer. </li>
+                        <li>Add meatballs, mushrooms, carrots, celery and tomatoes. Simmer till carrots are tender. Add meatballs, mushrooms, carrots, celery and tomatoes. Simmer till carrots are tender.</li>
+                        <li>Add peas, salt and pepper. Return to simmer. </li>
+                        <li><strong>Serve, garnished with chopped parsley.</strong>
+                        </li>
+                    </ol>
+                </div>
+            </section>
+            <section class="pdf-footer dietician-approval">
+                <div class="deitician-name">
+                    <div class="signature" style="margin-top: 0;">   
+                        <span style="display: block; ">
+                            <img src="http://s3-us-west-2.amazonaws.com/reciperotationstaging/attachments/15/original/Sig_with_line.png?1501724469" alt="Signature" style="max-width: 200px;">
+                        </span>
+                        <h3>Margaret Wooldridge, RD, LD #012560 Dietitian Approved: <u>07/01/17</u></h3>
+                    </div>
+                </div>
+                <div class="date">
+                    <p class="date-value">&copy;2017 Receipe and Rotations<br> All rights Reserved</p>
+                </div>
+            </section>
+        </section>
+    </body>
